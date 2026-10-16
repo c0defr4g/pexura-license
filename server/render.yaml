@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: pexura-license
+    runtime: python
+    buildCommand: pip install -r requirements_server.txt
+    startCommand: gunicorn license_server:app
+    envVars:
+      - key: ADMIN_KEY
+        value: PEXURA_ADMIN_2025_SECRET_CHANGE_THIS
+      - key: PYTHON_VERSION
+        value: 3.11.9
+    plan: free
